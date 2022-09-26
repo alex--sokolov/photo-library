@@ -10,6 +10,7 @@ import { MainComponent } from './photo-gallery/pages/main/main.component';
 import { FavoritesComponent } from './photo-gallery/pages/favorites/favorites.component';
 import { SinglePhotoComponent } from './photo-gallery/pages/single-photo/single-photo.component';
 import { GalleryHeaderComponent } from './photo-gallery/components/gallery-header/gallery-header.component';
+import { PhotoGalleryModule } from './photo-gallery/photo-gallery.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { GalleryHeaderComponent } from './photo-gallery/components/gallery-heade
     BrowserAnimationsModule,
     CoreModule,
     SharedModule,
+    PhotoGalleryModule
   ],
   providers: [],
   bootstrap: [AppComponent]

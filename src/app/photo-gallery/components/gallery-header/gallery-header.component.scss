@@ -1,0 +1,18 @@
+.header-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+  button {
+    width: 200px;
+  }
+}
+
+@media( max-width: 760px ) {
+  .header-buttons {
+      flex-direction: column;
+      gap:10px;
+  }
+}

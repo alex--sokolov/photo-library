@@ -15,8 +15,15 @@
   }
 }
 
+.header-margin {
+  height: 53px;
+}
+
 @media( max-width: 760px ) {
   .header {
     position: static;
+  }
+  .header-margin {
+    height: 0;
   }
 }
