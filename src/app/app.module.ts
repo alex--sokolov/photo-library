@@ -6,10 +6,18 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { MainComponent } from './photo-gallery/pages/main/main.component';
+import { FavoritesComponent } from './photo-gallery/pages/favorites/favorites.component';
+import { SinglePhotoComponent } from './photo-gallery/pages/single-photo/single-photo.component';
+import { GalleryHeaderComponent } from './photo-gallery/components/gallery-header/gallery-header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainComponent,
+    FavoritesComponent,
+    SinglePhotoComponent,
+    GalleryHeaderComponent
   ],
   imports: [
     BrowserModule,
