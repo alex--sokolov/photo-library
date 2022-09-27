@@ -10,6 +10,8 @@ export class FavoritesComponent implements OnInit {
 
   constructor() { }
 
+  images!:string[]
+
   ngOnInit(): void {
   }
 

@@ -6,6 +6,27 @@
   align-items: center;
   width: 640px;
   margin: 20px auto;
+  div {
+    img {
+      cursor: pointer;
+    }
+  }
+}
+
+.getMore, .loading {
+  height: 30%;
+}
+
+.loading {
+  .loading-circle {
+    margin: 0 auto;
+  }
+}
+
+.getMore {
+  text-align: center;
+  font-size: 18px;
+  color: #333;
 }
 
 @media( max-width: 760px ) {

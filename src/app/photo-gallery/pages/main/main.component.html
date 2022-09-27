@@ -1,4 +1,4 @@
-<app-gallery-header></app-gallery-header>
+<app-gallery-header [activeTab] = "'photos'"></app-gallery-header>
 
 <!--<div class="photos">-->
 <!--  <div *ngFor="let img of imgs$ | async"><img src="{{img}}" alt=""></div>-->
@@ -7,5 +7,9 @@
 <div class="photos">
   <div *ngFor="let img of images"><img src="{{img}}" alt=""></div>
 </div>
-<p *ngIf="loading" style="text-align: center">Loading...</p>
+<div *ngIf="loading" class="loading">
+  <mat-spinner class="loading-circle"></mat-spinner>
+</div>
+
+<div *ngIf="isFirstFetched && !loading" class="getMore">Scroll down to get more photos</div>
 
