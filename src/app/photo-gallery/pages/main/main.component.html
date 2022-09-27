@@ -5,7 +5,13 @@
 <!--</div>-->
 
 <div class="photos">
-  <div *ngFor="let img of images"><img src="{{img}}" alt=""></div>
+  <div *ngFor="let img of images">
+    <img
+      [src]="img"
+      [alt]="parseImg(img).id + '|' + parseImg(img).hmac"
+      (click) = "setFavorite($event)"
+    />
+  </div>
 </div>
 <div *ngIf="loading" class="loading">
   <mat-spinner class="loading-circle"></mat-spinner>

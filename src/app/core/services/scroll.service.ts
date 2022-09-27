@@ -21,6 +21,7 @@ export class ScrollService {
   }
 
   intersectionCallback(entries: any, observer: any) {
+    console.log('entries: ', entries);
     console.log('pageHeight: ', this.pageHeight);
     entries.forEach((entry: any) => {
       console.log('entry: ', entry);
@@ -28,6 +29,10 @@ export class ScrollService {
       entry.intersectionRatio === 1 ? this.intersectionSubject.next(true) : this.intersectionSubject.next(false);
     });
   }
+  //
+  // intersectionCallback(entry: any) {
+  //     entry.intersectionRatio === 1 ? this.intersectionSubject.next(true) : this.intersectionSubject.next(false);
+  // }
 
   setObserver() {
     return this.observer;

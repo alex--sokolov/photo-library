@@ -1,10 +1,6 @@
 <app-gallery-header [activeTab] = "'favorites'"></app-gallery-header>
 
-<!--<div class="photos">-->
-<!--  <div *ngFor="let img of imgs$ | async"><img src="{{img}}" alt=""></div>-->
-<!--</div>-->
-
-<div class="photos">
-  <div *ngFor="let img of images"><img src="{{img}}" alt=""></div>
+<div class="favorites">
+  <div *ngFor="let img of images"><img [src]="img" [alt]="parseImg(img).id + '|' + parseImg(img).hmac"></div>
 </div>
 
