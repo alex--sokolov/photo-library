@@ -1,6 +1,12 @@
 <app-gallery-header [activeTab] = "'favorites'"></app-gallery-header>
 
 <div class="favorites">
-  <div *ngFor="let img of images"><img [src]="img" [alt]="parseImg(img).id + '|' + parseImg(img).hmac"></div>
+  <div *ngFor="let img of images">
+    <img
+      routerLink="/photos/{{parseImg(img).id}}"
+      [src]="img"
+      [alt]="parseImg(img).id + '|' + parseImg(img).hmac"
+    />
+  </div>
 </div>
 

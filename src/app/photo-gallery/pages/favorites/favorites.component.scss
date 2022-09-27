@@ -12,3 +12,15 @@
     }
   }
 }
+
+@media( max-width: 760px ) {
+  .favorites {
+    width: 420px;
+  }
+}
+
+@media( max-width: 500px ) {
+  .favorites {
+    width: 200px;
+  }
+}

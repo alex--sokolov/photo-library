@@ -4,6 +4,7 @@ import { tap } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { ScrollService } from '../../../core/services/scroll.service';
 import { PhotosService } from '../../services/photos.service';
+import { IPhotoStorage } from '../../../core/models/photos';
 
 @Component({
   selector: 'app-main',
@@ -56,7 +57,14 @@ export class MainComponent implements OnInit {
   }
 
   setFavorite(e: MouseEvent) {
-    this.photosService.setFavorite(e);
+    const alt = (e.target as HTMLElement).getAttribute('alt') || '';
+    const indexSign = alt.indexOf('|');
+
+    const photo: IPhotoStorage = {
+      id: alt.slice(0, indexSign),
+      hmac: alt.slice(indexSign + 1, alt.length)
+    };
+    this.photosService.setFavorite(photo);
   }
 
   ngOnInit() {

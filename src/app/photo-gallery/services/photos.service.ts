@@ -32,15 +32,12 @@ export class PhotosService {
     return photosValue ? JSON.parse(photosValue) : [];
   }
 
-  setFavorite(e: MouseEvent): void {
-    const alt = (e.target as HTMLElement).getAttribute('alt') || '';
-    const indexSign = alt.indexOf('|');
+  getImageById(id:string):IPhotoStorage | null {
+    const photos = this.getFavorites();
+    return photos.find(photoInStorage => photoInStorage.id === id) || null;
+  }
 
-    const photo: IPhotoStorage = {
-      id: alt.slice(0, indexSign),
-      hmac: alt.slice(indexSign + 1, alt.length)
-    };
-
+  setFavorite(photo: IPhotoStorage): void {
     const photos = this.getFavorites();
 
     let isAlreadyExists = false;
@@ -52,6 +49,16 @@ export class PhotosService {
 
     if (!isAlreadyExists) {
       photos.push(photo);
+      this.storageService.set('photo', JSON.stringify(photos));
+    }
+  }
+
+  removeFromFavorite(photo: IPhotoStorage): void {
+    const photos = this.getFavorites();
+    const index = photos.findIndex((photoInStorage) => JSON.stringify(photoInStorage) === JSON.stringify(photo));
+
+    if (index !== -1) {
+      photos.splice(index, 1);
       this.storageService.set('photo', JSON.stringify(photos));
     }
   }
