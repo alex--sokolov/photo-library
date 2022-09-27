@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SinglePhotoComponent } from './single-photo.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('SinglePhotoComponent', () => {
   let component: SinglePhotoComponent;
@@ -8,7 +9,8 @@ describe('SinglePhotoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SinglePhotoComponent ]
+      declarations: [ SinglePhotoComponent ],
+      imports: [RouterTestingModule]
     })
     .compileComponents();
 

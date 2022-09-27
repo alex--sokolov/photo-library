@@ -7,6 +7,10 @@
   border-bottom: 1px solid #ccc;
   button {
     width: 200px;
+    &.mat-raised-button {
+      position: static;
+      transform: none;
+    }
   }
 }
 

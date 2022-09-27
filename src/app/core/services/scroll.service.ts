@@ -20,19 +20,11 @@ export class ScrollService {
     return this.intersectionSubject.asObservable();
   }
 
-  intersectionCallback(entries: any, observer: any) {
-    console.log('entries: ', entries);
-    console.log('pageHeight: ', this.pageHeight);
+  intersectionCallback(entries: any) {
     entries.forEach((entry: any) => {
-      console.log('entry: ', entry);
-      console.log('entry.intersectionRatio: ', entry.intersectionRatio);
       entry.intersectionRatio === 1 ? this.intersectionSubject.next(true) : this.intersectionSubject.next(false);
     });
   }
-  //
-  // intersectionCallback(entry: any) {
-  //     entry.intersectionRatio === 1 ? this.intersectionSubject.next(true) : this.intersectionSubject.next(false);
-  // }
 
   setObserver() {
     return this.observer;

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-gallery-header',
@@ -6,11 +6,6 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   styleUrls: ['./gallery-header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GalleryHeaderComponent implements OnInit {
+export class GalleryHeaderComponent {
   @Input() activeTab!: string;
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

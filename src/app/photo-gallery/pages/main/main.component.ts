@@ -25,6 +25,7 @@ export class MainComponent implements OnInit {
   loading = false;
   images: string[] = [];
   isFirstFetched = false;
+  currentFavs:string[] = [];
 
   parseImg(img: string) {
     return this.photosService.convertImgToObj(img);
@@ -60,9 +61,14 @@ export class MainComponent implements OnInit {
     const alt = (e.target as HTMLElement).getAttribute('alt') || '';
     const indexSign = alt.indexOf('|');
 
+    const id = alt.slice(0, indexSign);
+    const hmac = alt.slice(indexSign + 1, alt.length);
+
+    this.currentFavs.push(id);
+
     const photo: IPhotoStorage = {
-      id: alt.slice(0, indexSign),
-      hmac: alt.slice(indexSign + 1, alt.length)
+      id,
+      hmac
     };
     this.photosService.setFavorite(photo);
   }

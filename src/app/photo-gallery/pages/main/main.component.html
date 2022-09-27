@@ -1,11 +1,12 @@
 <app-gallery-header [activeTab]="'photos'"></app-gallery-header>
 
-<section class="photos">
-  <div *ngFor="let img of images">
+<section class="photos" >
+  <div *ngFor="let img of images" [ngClass]="{favorite:currentFavs.includes(parseImg(img).id)}">
     <img
       [src]="img"
       [alt]="parseImg(img).id + '|' + parseImg(img).hmac"
       (click)="setFavorite($event)"
+      [ngClass]="{favorite:currentFavs.includes(parseImg(img).id)}"
     />
   </div>
 </section>
