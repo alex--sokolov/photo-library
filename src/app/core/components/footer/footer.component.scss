@@ -1,9 +1,14 @@
 @import "../../../../styles/colors";
 
+.footer-margin {
+  height: 62px;
+}
+
 .footer {
   position: fixed;
   width: 100%;
   bottom: 0;
+  background-color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,8 +45,12 @@
 }
 
 @media( max-width: 760px ) {
+  .footer-margin {
+    height: 0;
+  }
+
   .footer {
-    position: absolute;
+    position: static;
     flex-direction: column;
     gap:10px;
   }

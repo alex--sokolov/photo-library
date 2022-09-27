@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  API: {
+    url: 'https://picsum.photos/200/300',
+    delay: [200, 300],
+    limit: 6,
+  },
 };
 
 /*
