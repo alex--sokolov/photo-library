@@ -1,0 +1,32 @@
+@import "../../../../styles/mixins";
+
+@include btn-remove;
+@include error;
+
+.favorites {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 16px 20px;
+  align-items: center;
+  width: 640px;
+  margin: 20px auto;
+
+  div {
+    img {
+      cursor: pointer;
+    }
+  }
+}
+
+@media(max-width: 760px) {
+  .favorites {
+    width: 420px;
+  }
+}
+
+@media(max-width: 500px) {
+  .favorites {
+    width: 200px;
+  }
+}

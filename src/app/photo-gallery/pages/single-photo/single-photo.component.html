@@ -1,0 +1,29 @@
+<app-gallery-header></app-gallery-header>
+
+<ng-container *ngIf="img; else noPhoto">
+  <section class="single-photo" [ngClass]="{removed:isRemovedFromFav}">
+    <img
+      [src]="img"
+      [alt]="parseImg(img).id + '|' + parseImg(img).hmac"
+      [ngClass]="{removed:isRemovedFromFav}"
+    />
+  </section>
+
+  <ng-container *ngIf="!isRemovedFromFav; else addToFav">
+    <button mat-raised-button color="warn" class="btn-remove" (click)="toggleFav('remove')">
+      Remove from favorites
+    </button>
+  </ng-container>
+  <ng-template #addToFav>
+    <button mat-raised-button color="accent" class="btn-remove" (click)="toggleFav('add')">
+      Add to favorites
+    </button>
+  </ng-template>
+</ng-container>
+<ng-template #noPhoto>
+  <div class="error-message">Wrong photo id was specified in url</div>
+</ng-template>
+
+
+
+

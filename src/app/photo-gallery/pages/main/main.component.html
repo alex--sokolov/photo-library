@@ -1,0 +1,17 @@
+<app-gallery-header [activeTab]="'photos'"></app-gallery-header>
+
+<section class="photos" >
+  <div *ngFor="let img of images" [ngClass]="{favorite:currentFavs.includes(parseImg(img).id)}">
+    <img
+      [src]="img"
+      [alt]="parseImg(img).id + '|' + parseImg(img).hmac"
+      (click)="setFavorite($event)"
+      [ngClass]="{favorite:currentFavs.includes(parseImg(img).id)}"
+    />
+  </div>
+</section>
+<div *ngIf="loading" class="loading">
+  <mat-spinner class="loading-circle"></mat-spinner>
+</div>
+
+<div *ngIf="isFirstFetched && !loading" class="getMore">Scroll down to get more photos</div>

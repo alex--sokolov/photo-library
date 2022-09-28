@@ -1,0 +1,50 @@
+@import "../../../../styles/mixins";
+
+.single-photo {
+  text-align: center;
+  min-height: 640px;
+
+  img {
+    transform: scale(2);
+    margin-top: 170px;
+
+    &.removed {
+      filter: grayscale(0.5);
+      outline: 2px solid red;
+      transition: filter 2s;
+    }
+  }
+
+  &.removed {
+    position: relative;
+
+    &:after {
+      content: "Removed";
+      position: absolute;
+      color: red;
+      z-index: 100;
+      border: 2px solid red;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      font-size: 20px;
+      font-weight: 500;
+      padding: 6px;
+      box-shadow: 0 0 10px 1px red;
+    }
+  }
+}
+
+@include btn-remove;
+@include error;
+
+@media(max-width: 500px) {
+  .single-photo {
+    min-height: 500px;
+
+    img {
+      transform: scale(1.4);
+      margin-top: 80px;
+    }
+  }
+}

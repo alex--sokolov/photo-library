@@ -1,0 +1,64 @@
+.photos {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px 20px;
+  align-items: center;
+  width: 640px;
+  margin: 20px auto;
+  div {
+    img {
+      cursor: pointer;
+      &.favorite {
+        outline: 2px solid greenyellow;
+
+      }
+    }
+    &.favorite {
+      position: relative;
+
+      &:after {
+        content: "Added to favorites";
+        position: absolute;
+        color: greenyellow;
+        z-index: 100;
+        border: 2px solid greenyellow;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        font-size: 20px;
+        font-weight: 500;
+        padding: 6px;
+        box-shadow: 0 0 10px 1px greenyellow;
+      }
+    }
+  }
+}
+
+.getMore, .loading {
+  height: 30%;
+}
+
+.loading {
+  .loading-circle {
+    margin: 0 auto;
+  }
+}
+
+.getMore {
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+}
+
+@media( max-width: 760px ) {
+  .photos {
+    width: 420px;
+  }
+}
+
+@media( max-width: 500px ) {
+  .photos {
+    width: 200px;
+  }
+}

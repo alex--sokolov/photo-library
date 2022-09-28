@@ -1,0 +1,63 @@
+@import "../../../../styles/colors";
+
+.footer-margin {
+  height: 62px;
+}
+
+.footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ccc;
+  padding: 20px;
+
+  .footer-logo {
+    cursor: pointer;
+    padding: 10px;
+    &:hover {
+      font-weight: 500;
+      text-decoration: underline;
+    }
+  }
+
+  .footer-year {
+    font-size: 16px;
+
+    span {
+      font-size: 18px;
+      font-weight: 500;
+      color: $color-primary;
+    }
+  }
+
+  .footer-author {
+    font-size: 16px;
+
+    a {
+      color: $color-primary;
+      font-size: 18px;
+      font-weight: 500;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media( max-width: 760px ) {
+  .footer-margin {
+    height: 0;
+  }
+
+  .footer {
+    position: static;
+    flex-direction: column;
+    gap:10px;
+  }
+}
