@@ -36,7 +36,9 @@ describe('StorageService', () => {
     const value1 = service.get(key);
     const value2 = service.get('someKey');
     const value3 = service.get('someOtherKey');
-    expect(!value1 && !value2 && !value3).toBeTruthy()
+    expect(value1).toBeFalsy();
+    expect(value2).toBeFalsy();
+    expect(value3).toBeFalsy();
   });
 
 });
