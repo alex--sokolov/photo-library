@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { PhotosService } from '../../services/photos.service';
+import { StorageService } from '../../../core/services/storage.service';
 
 @Component({
   selector: 'app-favorites',
@@ -12,6 +13,8 @@ export class FavoritesComponent implements OnInit {
 
   constructor(
     private photosService: PhotosService,
+    private storageService: StorageService,
+    private cd: ChangeDetectorRef,
   ) {
   }
 
@@ -19,6 +22,12 @@ export class FavoritesComponent implements OnInit {
 
   parseImg(img: string) {
     return this.photosService.convertImgToObj(img);
+  }
+
+  removeAll(){
+    this.storageService.clear();
+    this.images = [];
+    this.cd.detectChanges();
   }
 
   ngOnInit(): void {

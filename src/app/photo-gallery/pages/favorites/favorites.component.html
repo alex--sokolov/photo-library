@@ -1,12 +1,19 @@
 <app-gallery-header [activeTab]="'favorites'"></app-gallery-header>
 
-<div class="favorites">
-  <div *ngFor="let img of images">
-    <img
-      routerLink="/photos/{{parseImg(img).id}}"
-      [src]="img"
-      [alt]="parseImg(img).id + '|' + parseImg(img).hmac"
-    />
+<ng-container *ngIf="images.length > 0; else noPhoto">
+  <div class="favorites">
+    <div *ngFor="let img of images">
+      <img
+        routerLink="/photos/{{parseImg(img).id}}"
+        [src]="img"
+        [alt]="parseImg(img).id + '|' + parseImg(img).hmac"
+      />
+    </div>
   </div>
-</div>
-
+  <button mat-raised-button color="warn" class="btn-remove" (click)="removeAll()">
+    Remove all
+  </button>
+</ng-container>
+<ng-template #noPhoto>
+  <p class="error-message">There are no favorite photos</p>
+</ng-template>

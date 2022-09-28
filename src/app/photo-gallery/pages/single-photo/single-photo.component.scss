@@ -35,11 +35,7 @@
   }
 }
 
-.btn-remove {
-  left: 50%;
-  transform: translateX(-50%);
-}
-
+@include btn-remove;
 @include error;
 
 @media(max-width: 500px) {
